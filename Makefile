@@ -3,4 +3,4 @@
 deps:
 		pip install -r requirements.txt
 test:
-		PHONYPATH=. py.test
+		PHONYPATH=. python3 tests/test_suite.py
