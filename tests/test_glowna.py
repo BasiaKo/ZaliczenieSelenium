@@ -1,8 +1,9 @@
 import unittest
-
 import HtmlTestRunner
 
-from test_base import BaseTestGlowna
+from tests.test_base import BaseTestGlowna
+from pages.strona_glowna import StronaGlowna
+from locators import Strona_Glowna_Lokatory
 
 class GlownaTest(BaseTestGlowna):
 

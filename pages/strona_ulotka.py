@@ -1,14 +1,10 @@
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdrive import ActionChains
 
-class StronaGlowna:
+from locators import Strona_Ulotka_Lokatory
 
-    pole_miasto=(By.XPATH, "//input[@id='searchAdresu']")
-    pole_lek=(By.XPATH, "//input[@id='search']")
-    btn_szukajAdresu=(By.XPATH, "//button[@id='showAdresy']")
-    btn_szukajLeku=(By.XPATH, "//button[@id='showLeki']")
-    btn_menu=(By.XPATH, "//button[@id='menuToggler']")
+class StronaUlotka:
 
     def __init__(self, driver):
         self.driver=driver
