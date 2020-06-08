@@ -1,6 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdrive import ActionChains
+from selenium.webdriver import ActionChains
 
 from locators import Strona_Zapytaj_Lokatory
 
@@ -12,5 +12,7 @@ class StronaZapytaj:
     def refresh(self):
         self.driver.refresh()
 
-    def click_menu(self):
-        WebDriverWait(self.driver,50).until(EC.presence_of_element_located(btn_menu)).click()
+    def zweryfikuj_strone(self):
+        self.driver.implicitly_wait(50)
+        title="Ktomalek - Zapytaj farmaceutę"
+        assert title==self.driver.title
