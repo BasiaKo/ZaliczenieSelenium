@@ -21,4 +21,8 @@ class Strona_Logowania_Lokatory:
   pole_naglowek=(By.XPATH,"//div/h1")
 
 class Strona_Zapytaj_Lokatory:
-  pole_miasto=(By.XPATH, "//input[@id='searchAdresu']")
+  input_pytanie=(By.XPATH, "//textarea[@id='questionBox']")
+  btn_wyslij=(By.XPATH, "//a[@id='askSpecialistBtn']")
+  btn_wyslij_pytanie=(By.XPATH, "//div[@id='buttons']/input")
+  pole_walidacja_dlugosci=(By.XPATH, "//span[@id='zgoda.errors']")
+  pole_walidacja_zgoda=(By.XPATH, "//span[@id='zgoda.errors']")

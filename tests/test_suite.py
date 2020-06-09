@@ -5,7 +5,7 @@ import HtmlTestRunner
 # from tests.test_glowna import GlownaTest
 # import tests.test_logowania as logowanie
 from tests.test_logowania import PrzejscieDoLogowania #LogowanieZle, LogowaniePoprawne
-from tests.test_zapytaj import PrzejscieDoZapytaj
+from tests.test_zapytaj import PrzejscieDoZapytaj, ZadaniePytaniaWalidacje
 
 class TestSuite(unittest.TestSuite):
     def suite(self):
@@ -17,6 +17,8 @@ class TestSuite(unittest.TestSuite):
         suite.addTest(PrzejscieDoZapytaj('test_strony_zapytaj_stopka'))
         suite.addTest(PrzejscieDoZapytaj('test_strony_zapytaj_menu'))
         suite.addTest(PrzejscieDoZapytaj('test_strony_zapytaj_boczne'))
+        suite.addTest(ZadaniePytaniaWalidacje('test_dlugosci_znakow'))
+        suite.addTest(ZadaniePytaniaWalidacje('test_zgody'))
 
         return suite
 

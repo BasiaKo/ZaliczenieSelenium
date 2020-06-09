@@ -33,6 +33,14 @@ class StronaGlowna:
         time.sleep(10)
         WebDriverWait(self.driver,50).until(EC.element_to_be_clickable(Strona_Glowna_Lokatory.btn_zapytaj_boczne)).click()
 
+    def zmien_okno(self):
+        handles=self.driver.window_handles
+        print("ilosc okien " + len(handles))
+        for x in range(len(handles)):
+            self.driver.switch_to.window(handles[x])
+            print(self.driver.title)
+        self.driver.switch_to.window(self.driver.window_handles[1])
+
     def sprawdz_poprawne_zalogowanie(self, uzytkownik):
         zalogowany=self.driver.find_element(*Strona_Glowna_Lokatory.pole_uzytkownik)
         if zalogowany.is_displayed():
