@@ -12,12 +12,11 @@ class StronaLogowania:
     def refresh(self):
         self.driver.refresh()
 
-    def zweryfikuj_strone(self, info):
+    def zweryfikuj_strone(self, info, infoA):
         naglowek=self.driver.find_element(*Strona_Logowania_Lokatory.pole_naglowek)
         if naglowek.is_displayed():
             naglowek=naglowek.text.strip()
-
-        assert naglowek==info
+        assert (naglowek==info or naglowek==infoA)
 
     def wpisz_uzytkowik(self, uzytkownik):
         WebDriverWait(self.driver,50).until(EC.presence_of_element_located(Strona_Logowania_Lokatory.input_uzytkownik)).send_keys(uzytkownik)
@@ -31,11 +30,9 @@ class StronaLogowania:
     def kliknij_powrot(self):
         WebDriverWait(self.driver,50).until(EC.presence_of_element_located(Strona_Logowania_Lokatory.btn_powrot)).click()
 
-    def sprawdz_zle_zalogowanie(self, error):
+    def sprawdz_zle_zalogowanie(self, error, errorA):
         WebDriverWait(self.driver,50).until(EC.presence_of_element_located(Strona_Logowania_Lokatory.pole_error))
         error_info=self.driver.find_element(*Strona_Logowania_Lokatory.pole_error)
-        visible_errors=[]
-        for e in error_info:
-            if e.is_displayed():
-                visible_errors.append(e.text)
-        assert visible_errors==error, "oczekiwany: " + error + ", wykryty: " + visible_errors
+        if error_info.is_displayed():
+            error_info=error_info.text.strip()
+        assert (error_info==error or error_info==errorA)

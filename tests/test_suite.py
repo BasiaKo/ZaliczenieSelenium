@@ -2,18 +2,18 @@ import unittest
 
 import HtmlTestRunner
 
-# from tests.test_glowna import GlownaTest
-# import tests.test_logowania as logowanie
-from tests.test_logowania import PrzejscieDoLogowania #LogowanieZle, LogowaniePoprawne
+from tests.test_glowna import GlownaTest
+import tests.test_logowania as logowanie
+from tests.test_logowania import LogowanieZle, PrzejscieDoLogowania, LogowaniePoprawne
 from tests.test_zapytaj import PrzejscieDoZapytaj, ZadaniePytaniaWalidacje
 
 class TestSuite(unittest.TestSuite):
     def suite(self):
         suite=unittest.TestSuite()
-        # suite.addTest(GlownaTest('test_zaladowanie_strony'))
-        # suite.addTest(LogowanieZle('test_zlego_logowania'))
+        suite.addTest(GlownaTest('test_zaladowanie_strony'))
+        suite.addTest(LogowanieZle('test_zlego_logowania'))
         suite.addTest(PrzejscieDoLogowania('test_strony_logowania'))
-        # suite.addTest(LogowaniePoprawne('test_poprawnego_logowania'))
+        suite.addTest(LogowaniePoprawne('test_poprawnego_logowania'))
         suite.addTest(PrzejscieDoZapytaj('test_strony_zapytaj_stopka'))
         suite.addTest(PrzejscieDoZapytaj('test_strony_zapytaj_menu'))
         suite.addTest(PrzejscieDoZapytaj('test_strony_zapytaj_boczne'))

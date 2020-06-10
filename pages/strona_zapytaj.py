@@ -31,6 +31,7 @@ class StronaZapytaj:
         if error.is_displayed():
             error=error.text.strip()
 
+        print(error + ";" + error_info)
         assert error==error_info
 
     def sprawdz_walidacja_zgoda(self, error_info):

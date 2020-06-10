@@ -12,19 +12,20 @@ class PrzejscieDoLogowania(BaseTestGlowna):
     hp.kliknij_zaloguj()
 
     lp=StronaLogowania(self.driver)
-    lp.zweryfikuj_strone("Zaloguj się")
+    lp.zweryfikuj_strone("Zaloguj się", "Sign in")
 
 class LogowanieZle(BaseTestLogowania):
   def test_zlego_logowania(self):
     uzytkownik="01Barbara"
     haslo="cos"
     error="Podano nieprawidłowe dane dostępowe"
+    errorA="Incorrect username or password."
 
     lp=StronaLogowania(self.driver)
     lp.wpisz_uzytkowik(uzytkownik)
     lp.wpisz_haslo(haslo)
     lp.kliknij_zaloguj()
-    lp.sprawdz_zle_zalogowanie(error)
+    lp.sprawdz_zle_zalogowanie(error, errorA)
 
 class LogowaniePoprawne(BaseTestLogowania):
   def test_poprawnego_logowania(self):
